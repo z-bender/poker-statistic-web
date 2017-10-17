@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
-import {BankrollComponent, BankrollItemComponent} from './index';
+import {AddItemComponent, BankrollComponent, BankrollItem} from './index';
 
 @NgModule({
-  declarations: [BankrollComponent, BankrollItemComponent]
+  declarations: [BankrollComponent, AddItemComponent],
+  providers: [BankrollItem]
 })
 export class BankrollModule { }
