@@ -4,7 +4,8 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 
-import {AppComponent, BankrollModule, PlayersModule, routs} from './index';
+import {AppComponent, BankrollModule, PlayersModule} from './index';
+import {routs} from './routs';
 
 @NgModule({
   declarations: [

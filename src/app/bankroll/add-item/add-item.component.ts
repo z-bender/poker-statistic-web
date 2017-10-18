@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BankrollItem} from '../index';
+import {BankrollItem} from '../bankroll-item';
 
 @Component({
   moduleId: module.id,
@@ -7,5 +7,9 @@ import {BankrollItem} from '../index';
   templateUrl: 'add-item.component.html'
 })
 export class AddItemComponent {
-  bankrollItem: BankrollItem;
+  bankrollItem: BankrollItem = new BankrollItem;
+
+  add(): void {
+    console.log(this.bankrollItem);
+  }
 }

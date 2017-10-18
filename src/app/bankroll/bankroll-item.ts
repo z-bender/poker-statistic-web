@@ -1,12 +1,11 @@
 export class BankrollItem {
-  id: number;
-  dateTime: Date;
+  public id: number;
+  public dateTime: Date;
   money: number;
-  points: number;
-  // todo: where is type?
-  type: ItemType;
-  comment: string;
-};
+  public points: number;
+  public type: ItemType;
+  public comment: string;
+}
 
 export enum ItemType {
   GAME,
@@ -14,5 +13,5 @@ export enum ItemType {
   WITHDRAWAL,
   CONVERT_BONUS,
   OTHER
-};
+}
 

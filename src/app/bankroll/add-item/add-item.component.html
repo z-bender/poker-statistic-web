@@ -1,14 +1,13 @@
 <div>
-  <form>
     <label for="date">Дата</label>
-    <input id="date" value="{{bankrollItem.dateTime}}"/>
+    <input id="date" [(ngModel)]="bankrollItem.dateTime"/>
     <label for="money">$</label>
-    <input id="money" value="{{bankrollItem.money}}"/>
+    <input id="money" [(ngModel)]="bankrollItem.money"/>
     <label for="points">MPP</label>
-    <input id="points" value="{{bankrollItem.points}}" />
+    <input id="points" [(ngModel)]="bankrollItem.points" />
     <label for="type">Тип записи</label>
-    <input id="type" value="{{bankrollItem.type}}"/>
+    <input id="type" [(ngModel)]="bankrollItem.type"/>
     <label for="comment">Комментарий</label>
-    <input id="comment" value="{{bankrollItem.comment}}"/>
-  </form>
+    <input id="comment" [(ngModel)]="bankrollItem.comment"/>
+    <button (click)="add()">Add</button>
 </div>
