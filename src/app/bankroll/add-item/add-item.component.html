@@ -1,13 +1,13 @@
 <div>
-    <label for="date">Дата</label>
-    <input id="date" [(ngModel)]="bankrollItem.dateTime"/>
-    <label for="money">$</label>
-    <input id="money" [(ngModel)]="bankrollItem.money"/>
-    <label for="points">MPP</label>
-    <input id="points" [(ngModel)]="bankrollItem.points" />
-    <label for="type">Тип записи</label>
-    <input id="type" [(ngModel)]="bankrollItem.type"/>
-    <label for="comment">Комментарий</label>
-    <input id="comment" [(ngModel)]="bankrollItem.comment"/>
-    <button (click)="add()">Add</button>
+  <input id="date" [matDatepicker]="itemDate" [(ngModel)]="bankrollItem.dateTime"/>
+  <mat-datepicker-toggle matSuffix [for]="itemDate"></mat-datepicker-toggle>
+  <mat-datepicker #itemDate></mat-datepicker>
+  <label for="money">$</label>
+  <input id="money" [(ngModel)]="bankrollItem.money"/>
+  <label for="points">MPP</label>
+  <input id="points" [(ngModel)]="bankrollItem.points"/>
+  <app-item-enum></app-item-enum>
+  <label for="comment">Комментарий</label>
+  <input id="comment" [(ngModel)]="bankrollItem.comment"/>
+  <button (click)="add()">Add</button>
 </div>

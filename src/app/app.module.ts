@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 
 import {AppComponent, BankrollModule, PlayersModule} from './index';
 import {routs} from './routs';
+import {MatNativeDateModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,10 @@ import {routs} from './routs';
     HttpModule,
     RouterModule.forRoot(routs),
     PlayersModule,
-    BankrollModule
+    BankrollModule,
+    MatNativeDateModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
