@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Headers, Http, RequestOptions} from '@angular/http';
 import {BankrollItem} from '../bankroll/bankroll-item';
 import {AbstractApiService} from './AbstractApiService';
 
@@ -14,7 +14,11 @@ export class BankrollApiService extends AbstractApiService {
 
   add(item: BankrollItem) {
     const url: string = this.bankrollApiUrl + '/add';
-    this.http.post(url, item);
+    const body = JSON.stringify(item);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
+    this.http.post(url, body, options)
+      .subscribe(res => console.log(res));
   }
 
 }
