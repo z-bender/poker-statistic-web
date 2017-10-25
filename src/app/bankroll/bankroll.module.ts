@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {AddItemComponent, BankrollComponent, BankrollItem} from './index';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ItemEnumComponent} from './item-enum.component';
 import {MatDatepickerModule} from '@angular/material';
 import {HttpModule} from '@angular/http';
@@ -10,6 +10,6 @@ import {AbstractApiService} from '../_services/AbstractApiService';
 @NgModule({
   declarations: [BankrollComponent, AddItemComponent, ItemEnumComponent],
   providers: [BankrollItem, AddItemComponent, BankrollApiService, AbstractApiService],
-  imports: [FormsModule, MatDatepickerModule, HttpModule]
+  imports: [FormsModule, MatDatepickerModule, HttpModule, ReactiveFormsModule]
 })
 export class BankrollModule { }
