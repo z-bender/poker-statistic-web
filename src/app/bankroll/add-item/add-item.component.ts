@@ -11,7 +11,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class AddItemComponent implements OnInit {
 
-  bankrollItem: BankrollItem = new BankrollItem;
+  bankrollItem: BankrollItem = new BankrollItem();
   addItemForm: FormGroup;
   itemTypes;
 
