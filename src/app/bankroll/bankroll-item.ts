@@ -8,10 +8,18 @@ export class BankrollItem {
 }
 
 export enum ItemType {
-  GAME = 1,
-  DEPOSIT = 2,
-  WITHDRAWAL = 3,
-  CONVERT_BONUS = 4,
-  OTHER = 5
+  GAME = 'GAME',
+  DEPOSIT = 'DEPOSIT',
+  WITHDRAWAL = 'WITHDRAWAL',
+  CONVERT_BONUS = 'CONVERT_BONUS',
+  OTHER = 'OTHER'
+}
+
+export enum ItemTypeTranslator {
+  GAME = 'Игра',
+  DEPOSIT = 'Депозит',
+  WITHDRAWAL = 'Вывод',
+  CONVERT_BONUS = 'Бонусы',
+  OTHER = 'Другое'
 }
 

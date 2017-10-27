@@ -18,7 +18,10 @@ export class BankrollApiService extends AbstractApiService {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({headers: headers});
     this.http.post(url, body, options)
-      .subscribe(res => console.log(res));
+      .subscribe(
+        result => console.log(result.json()),
+        error => console.log(error.statusText)
+      );
   }
 
 }
