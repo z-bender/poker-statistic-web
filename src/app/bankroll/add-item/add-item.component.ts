@@ -9,14 +9,31 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   templateUrl: 'add-item.component.html',
   styleUrls: ['../../main.css']
 })
+// todo: ограничить выбор даты (от последней записи до сегодня)
 export class AddItemComponent implements OnInit {
 
-  bankrollItem: BankrollItem = new BankrollItem();
+  bankrollItem: BankrollItem;
+  lastItem: BankrollItem;
+  moneyDifference: number;
+  pointsDifference: number;
   addItemForm: FormGroup;
-  itemTypes;
+  itemTypes: string[];
 
   constructor(private bankrollService: BankrollApiService) {
     this.itemTypes = Object.keys(ItemType);
+    this.bankrollItem = new BankrollItem();
+    this.bankrollItem.type = ItemType.GAME;
+    this.bankrollItem.dateTime = new Date();
+
+    this.bankrollService.getLast(
+      result => {
+        this.lastItem = result;
+        this.bankrollItem.money = this.lastItem.money;
+        this.bankrollItem.points = this.lastItem.points;
+        this.calcMoneyDifference();
+        this.calcPointsDifference();
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -27,12 +44,19 @@ export class AddItemComponent implements OnInit {
       itemType: new FormControl('', Validators.required),
       comment: new FormControl(''),
     });
-    this.bankrollItem.type = ItemType.GAME;
   }
 
   add(): void {
     console.log(this.bankrollItem);
     this.bankrollService.add(this.bankrollItem);
+  }
+
+  calcMoneyDifference() {
+    this.moneyDifference = this.bankrollItem.money - this.lastItem.money;
+  }
+
+  calcPointsDifference() {
+    this.pointsDifference = this.bankrollItem.points - this.lastItem.points;
   }
 
   getTypeDescription(itemTypeValue: string) {

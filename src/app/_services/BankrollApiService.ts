@@ -24,4 +24,22 @@ export class BankrollApiService extends AbstractApiService {
       );
   }
 
+  getLast(successCallback): void {
+    const url: string = this.bankrollApiUrl + '/getLast';
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
+    this.http.get(url, options).subscribe(
+      result => {
+        const data: BankrollItem = result.json();
+        data.dateTime = this.parseDateFromApiResponse(data.dateTime);
+        successCallback(data);
+      },
+      error => console.log('Error in getLast:' + error.statusText)
+    );
+  }
+
+  parseDateFromApiResponse(dateArray): Date {
+    return new Date(dateArray[0], dateArray[1] - 1, dateArray[2]);
+  }
+
 }

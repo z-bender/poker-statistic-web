@@ -5,11 +5,11 @@ import {MatDatepickerModule} from '@angular/material';
 import {HttpModule} from '@angular/http';
 import {BankrollApiService} from '../_services/BankrollApiService';
 import {AbstractApiService} from '../_services/AbstractApiService';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [BankrollComponent, AddItemComponent],
-  providers: [BankrollItem, AddItemComponent, BankrollApiService, AbstractApiService],
+  providers: [BankrollItem, AddItemComponent, BankrollApiService, AbstractApiService, DatePipe],
   imports: [FormsModule, MatDatepickerModule, HttpModule, ReactiveFormsModule, CommonModule]
 })
 export class BankrollModule {
