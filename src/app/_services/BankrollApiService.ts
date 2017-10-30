@@ -19,6 +19,7 @@ export class BankrollApiService extends AbstractApiService {
     const options = new RequestOptions({headers: headers});
     this.http.post(url, body, options)
       .subscribe(
+        // fixme: ошибка в result
         result => console.log(result.json()),
         error => console.log(error.statusText)
       );

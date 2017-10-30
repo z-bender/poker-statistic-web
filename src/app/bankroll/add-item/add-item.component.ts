@@ -49,6 +49,7 @@ export class AddItemComponent implements OnInit {
   add(): void {
     console.log(this.bankrollItem);
     this.bankrollService.add(this.bankrollItem);
+    // todo: update lastItem (передавать коллбэк на сервис?)
   }
 
   calcMoneyDifference() {
